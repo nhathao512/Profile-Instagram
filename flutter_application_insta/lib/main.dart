@@ -200,7 +200,7 @@ class InstagramProfile extends StatelessWidget {
                         ),
                         const SizedBox(height: 4),
                         Text(
-                          "509 lượt xem trong 30 ngày qua",
+                          "10K lượt xem trong 30 ngày qua",
                           style: TextStyle(
                             color: Colors.grey[400],
                             fontSize: 14,
@@ -242,6 +242,7 @@ class InstagramProfile extends StatelessWidget {
                 Icon(Icons.person_pin_outlined, size: 28),
               ],
             ),
+            const SizedBox(height: 10),
             GridView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
@@ -249,11 +250,13 @@ class InstagramProfile extends StatelessWidget {
                 crossAxisCount: 3,
                 crossAxisSpacing: 2,
                 mainAxisSpacing: 2,
+                childAspectRatio:
+                    307 / 410, // Specifically 307:410 aspect ratio
               ),
               itemCount: 12,
               itemBuilder: (context, index) {
                 return Image.network(
-                  'https://picsum.photos/100?image=${index + 100}',
+                  'https://picsum.photos/307/410?image=${index + 100}',
                   fit: BoxFit.cover,
                 );
               },
