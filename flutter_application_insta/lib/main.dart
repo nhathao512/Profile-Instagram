@@ -50,6 +50,7 @@ class InstagramProfile extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Stack(
+                    clipBehavior: Clip.none, // Allow overflow
                     children: [
                       Container(
                         width: 90,
@@ -62,6 +63,7 @@ class InstagramProfile extends StatelessWidget {
                           ),
                         ),
                       ),
+                      // Icon plus blue
                       Positioned(
                         bottom: 0,
                         right: 0,
@@ -78,71 +80,55 @@ class InstagramProfile extends StatelessWidget {
                           ),
                         ),
                       ),
+                      // Note instagram
+                      Positioned(
+                        top: -20,
+                        left: 0,
+                        right: 0,
+                        child: Container(
+                          margin: const EdgeInsets.only(top: 4),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 10,
+                            vertical: 5,
+                          ),
+                          decoration: BoxDecoration(
+                            color: Colors.grey[800],
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: const Padding(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 2,
+                              vertical: 4,
+                            ),
+                            child: Center(
+                              child: Text(
+                                'Bạn có gì mới vậy?',
+                                textAlign: TextAlign.center,
 
-                      // Positioned(
-                      //   top: 0,
-                      //   left: 0,
-                      //   right: 0,
-                      //   child: Container(
-                      //     padding: const EdgeInsets.symmetric(
-                      //       horizontal: 8,
-                      //       vertical: 8,
-                      //     ),
-                      //     decoration: BoxDecoration(
-                      //       color: Colors.grey[400], // Màu nền của note
-                      //       borderRadius: BorderRadius.circular(12), // Bo góc
-                      //       boxShadow: [
-                      //         BoxShadow(
-                      //           color: Colors.black, // Bóng đổ
-                      //           spreadRadius: 1,
-                      //           blurRadius: 4,
-                      //           offset: const Offset(0, 2),
-                      //         ),
-                      //       ],
-                      //     ),
-                      //     child: const Row(
-                      //       mainAxisSize:
-                      //           MainAxisSize
-                      //               .min, // Đảm bảo Row chỉ chiếm không gian cần thiết
-                      //       children: [
-                      //         Icon(
-                      //           Icons.note, // Biểu tượng note
-                      //           color: Colors.white,
-                      //           size: 16,
-                      //         ),
-                      //         SizedBox(
-                      //           width: 4,
-                      //         ), // Khoảng cách giữa icon và text
-                      //         Text(
-                      //           'Bạn đang có gì mới vậy?', // Văn bản trong note
-                      //           style: TextStyle(
-                      //             color: Colors.white,
-                      //             fontSize: 12,
-                      //             fontWeight: FontWeight.bold,
-                      //           ),
-                      //         ),
-                      //       ],
-                      //     ),
-                      //   ),
-                      // ),
+                                style: TextStyle(
+                                  color: Color(0xFFA8A8A8),
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                   const SizedBox(width: 20),
                   Expanded(
                     child: Column(
-                      crossAxisAlignment:
-                          CrossAxisAlignment.start, // Căn lề trái cho Text
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        // Đặt Text trong một Container với chiều rộng bằng với Row
                         Text('Nhật Hào Võ', style: TextStyle(fontSize: 15)),
-                        const SizedBox(
-                          height: 8,
-                        ), // Khoảng cách giữa Text và Row
+                        const SizedBox(height: 8),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             _buildStatColumn('12', 'bài viết'),
-                            _buildStatColumn('93', 'người theo dõi'),
+                            _buildStatColumn('100K', 'người theo dõi'),
                             _buildStatColumn('104', 'đang theo dõi'),
                           ],
                         ),
