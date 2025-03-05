@@ -85,11 +85,11 @@ class _InstagramProfileState extends State<InstagramProfile> {
                             color: Colors.blue,
                             shape: BoxShape.circle,
                           ),
-                          padding: const EdgeInsets.all(5),
+                          padding: const EdgeInsets.all(3),
                           child: const Icon(
                             Icons.add,
                             color: Colors.white,
-                            size: 20,
+                            size: 16,
                           ),
                         ),
                       ),
@@ -278,9 +278,9 @@ class _InstagramProfileState extends State<InstagramProfile> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed, // Ensures icons maintain size
-        showSelectedLabels: false, // Hide labels
-        showUnselectedLabels: false, // Hide labels
+        type: BottomNavigationBarType.fixed,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Stack(
@@ -288,7 +288,7 @@ class _InstagramProfileState extends State<InstagramProfile> {
                 Icon(
                   _selectedIndex == 0 ? Icons.home : Icons.home_outlined,
                   size: 28,
-                  color: _selectedIndex == 0 ? Colors.white : Colors.grey,
+                  color: _selectedIndex == 0 ? Colors.white : Colors.white,
                 ),
               ],
             ),
@@ -322,7 +322,9 @@ class _InstagramProfileState extends State<InstagramProfile> {
             icon: Stack(
               children: [
                 Icon(
-                  _selectedIndex == 3 ? Icons.live_tv : Icons.live_tv_outlined,
+                  _selectedIndex == 3
+                      ? Icons.live_tv
+                      : Icons.ondemand_video_outlined,
                   size: 28,
                   color: _selectedIndex == 3 ? Colors.white : Colors.grey,
                 ),
@@ -334,8 +336,8 @@ class _InstagramProfileState extends State<InstagramProfile> {
             icon: Stack(
               children: [
                 Container(
-                  width: 28,
-                  height: 28,
+                  width: 30,
+                  height: 30,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     image: DecorationImage(
