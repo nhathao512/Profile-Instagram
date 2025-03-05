@@ -17,8 +17,21 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class InstagramProfile extends StatelessWidget {
+class InstagramProfile extends StatefulWidget {
   const InstagramProfile({super.key});
+
+  @override
+  _InstagramProfileState createState() => _InstagramProfileState();
+}
+
+class _InstagramProfileState extends State<InstagramProfile> {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -263,6 +276,87 @@ class InstagramProfile extends StatelessWidget {
             ),
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed, // Ensures icons maintain size
+        showSelectedLabels: false, // Hide labels
+        showUnselectedLabels: false, // Hide labels
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Stack(
+              children: [
+                Icon(
+                  _selectedIndex == 0 ? Icons.home : Icons.home_outlined,
+                  size: 28,
+                  color: _selectedIndex == 0 ? Colors.white : Colors.grey,
+                ),
+              ],
+            ),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Stack(
+              children: [
+                Icon(
+                  _selectedIndex == 1 ? Icons.search : Icons.search_outlined,
+                  size: 28,
+                  color: _selectedIndex == 1 ? Colors.white : Colors.grey,
+                ),
+              ],
+            ),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Stack(
+              children: [
+                Icon(
+                  _selectedIndex == 2 ? Icons.add_box : Icons.add_box_outlined,
+                  size: 28,
+                  color: _selectedIndex == 2 ? Colors.white : Colors.grey,
+                ),
+              ],
+            ),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Stack(
+              children: [
+                Icon(
+                  _selectedIndex == 3 ? Icons.live_tv : Icons.live_tv_outlined,
+                  size: 28,
+                  color: _selectedIndex == 3 ? Colors.white : Colors.grey,
+                ),
+              ],
+            ),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Stack(
+              children: [
+                Container(
+                  width: 28,
+                  height: 28,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                      image: NetworkImage('https://picsum.photos/100'),
+                      fit: BoxFit.cover,
+                    ),
+                    border:
+                        _selectedIndex == 4
+                            ? Border.all(color: Colors.white, width: 2)
+                            : null,
+                  ),
+                ),
+              ],
+            ),
+            label: '',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.grey,
+        onTap: _onItemTapped,
       ),
     );
   }
