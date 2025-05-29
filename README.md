@@ -1,4 +1,4 @@
-# 👨‍🎓Profile Instagram 
+# Profile Instagram 
 
 A new Flutter project.
 
